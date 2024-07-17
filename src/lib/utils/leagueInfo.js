@@ -6,6 +6,7 @@ export const dynasty = true; // true for dynasty leagues, false for redraft and 
 export const enableBlog = true; // requires VITE_CONTENTFUL_ACCESS_TOKEN and VITE_CONTENTFUL_SPACE environment variables
 
 // =========== Fonte REPLACE THIS SECTION WITH STUFF FROM YOUTUBE =================
+let nflTimer = '<script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script> <div class="elfsight-app-322a5580-2944-49a1-853c-31942bfeb4c4" data-elfsight-app-lazy></div>";'
 let LastSeasonYoutubeLink = "https://www.youtube.com/embed/U6ZD8yJy_zk?si=Ss1yIDoPUwL4L4tA";
 let videoTitle = "2022 Recap";
 let videoDescription = "Recap of last season and a commentary on the draft";
@@ -14,11 +15,11 @@ let mp4Video = 'home.mp4';
 let embedded_local_video = '<video style="width:100%; height:380px;" controls><source src="' + mp4Video + '" type="video/mp4"></video>';
 /*   STEP 2   */
 // ======= For Local video
-// export const homepageText = `` + embedded_local_video + `<div style="font-weight: bold;">${videoTitle}</div> <div>${videoDescription}</div>`;
+// export const homepageText = `` + nflTimer + embedded_local_video + `<div style="font-weight: bold;">${videoTitle}</div> <div>${videoDescription}</div>`;
 // ======= 
 // ======= For youtube video
 let embedded_youtube_element = `<iframe style="width:100%; height:380px;" src="${LastSeasonYoutubeLink}" title="Fonte Unfiltered" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
-export const homepageText = `` + embedded_youtube_element  + `<div style="font-weight: bold;">${videoTitle}</div> <div>${videoDescription}</div>`;
+export const homepageText = `` + nflTimer + embedded_youtube_element  + `<div style="font-weight: bold;">${videoTitle}</div> <div>${videoDescription}</div>`;
 // ======= 
 
 // ===========LEAVE THE REST BELOW HERE =================
