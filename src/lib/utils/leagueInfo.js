@@ -5,17 +5,19 @@ export const dues = 50; // (optional) used in template constitution page
 export const dynasty = true; // true for dynasty leagues, false for redraft and keeper
 export const enableBlog = true; // requires VITE_CONTENTFUL_ACCESS_TOKEN and VITE_CONTENTFUL_SPACE environment variables
 
+// =========== Fonte REPLACE THIS SECTION WITH STUFF FROM YOUTUBE =================
+let LastSeasonYoutubeLink = "https://www.youtube.com/embed/Kiir6kQYpec?si=s82JHIBFf99Xhn5Z";
+let videoTitle = "Last Season's Draft Recap";
+// ================== Fonte ==================
+
+let embedded_youtube_element = `<iframe style="width:100%; height:380px;" src="${LastSeasonYoutubeLink}" title="Fonte Unfiltered" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+
 /*   STEP 2   */
 // <iframe width="560" height="315" src="https://www.youtube.com/channel/UCGVh6WF6kCgl3x5AWiGE0MA/live" frameborder="0" allowfullscreen></iframe>
-export const homepageText = `` + 
-// =========== Fonte REPLACE THIS SECTION WITH STUFF FROM YOUTUBE =================
-`
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Kiir6kQYpec?si=s82JHIBFf99Xhn5Z" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-`
-// ===========LEAVE THE REST BELOW HERE =================
- + `<h3>Fonte Unfiltered S2 E13</h3>
+export const homepageText = `` + embedded_youtube_element 
+ + `<p>${videoTitle}</p>
     <p></p>`;
-
+// ===========LEAVE THE REST BELOW HERE =================
 /*   STEP 3   */
 /*
 3 managers as an example. Uncomment (remove the //) before each line to make it live code
