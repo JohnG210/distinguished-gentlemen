@@ -14,7 +14,7 @@ let mp4Video = 'home.mp4';
 let embedded_local_video = '<video style="width:100%; height:380px;" controls><source src="' + mp4Video + '" type="video/mp4"></video>';
 /*   STEP 2   */
 // ======= For Local video
-export const homepageText = `` + embedded_local_video + `<div style="font-weight: bold;">${videoTitle}</div> <div>${videoDescription}</div>`;
+// export const homepageText = `` + embedded_local_video + `<div style="font-weight: bold;">${videoTitle}</div> <div>${videoDescription}</div>`;
 // ======= 
 // ======= For youtube video
 let embedded_youtube_element = `<iframe style="width:100%; height:380px;" src="${LastSeasonYoutubeLink}" title="Fonte Unfiltered" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
