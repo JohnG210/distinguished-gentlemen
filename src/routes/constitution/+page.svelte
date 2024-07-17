@@ -7,6 +7,7 @@
     let five, fiveOne;
     let six, sixOne, sixTwo, sixThree;
     let seven, sevenOne, sevenTwo, sevenThree;
+    let changes;
 
     const goToSection = (section) => {
         const top = section.getBoundingClientRect().top + window.pageYOffset;
@@ -142,6 +143,7 @@
         <h4 class="noUnderscore clickable" on:click={() => goToSection(sixTwo)}>7.2 Payout</h4>
         <h4 class="noUnderscore clickable" on:click={() => goToSection(sixThree)}>7.3 Raising Dues</h4>
     
+    <h3 class="noUnderscore clickable" on:click={() => goToSection(changes)}>Suggest Changes</h3>
     
     <hr />
     
@@ -299,5 +301,23 @@
     
     <h3 bind:this={sevenThree}>7.3 Raising Dues</h3>
     <p>A ⅔ majority vote is required in order to raise league dues. In the event that a manager is no longer financially comfortable with the buyin, finding a co-manager to split the cost is reccomended.</p>
-
+    
+    <h2 class="sectionHeading" bind:this={changes}>Suggest Changes</h2>
+    <p>If you have any suggestions for changes to the constitution, please add them to the google doc below.</p>
+    <a href="https://docs.google.com/document/d/1xNJA4fyecKWOA42URV5c9MaeJS2YJTtHI1kcxRzg64E/edit?usp=sharing" target="_blank">
+        <button style="
+            background-color: #4285F4; 
+            color: white; 
+            border: none; 
+            padding: 15px 32px; 
+            text-align: center; 
+            text-decoration: none; 
+            display: inline-block; 
+            font-size: 16px; 
+            margin: 4px 2px; 
+            cursor: pointer;
+            border-radius: 4px;">
+            Open Suggestion Doc
+        </button>
+    </a>
 </div>
