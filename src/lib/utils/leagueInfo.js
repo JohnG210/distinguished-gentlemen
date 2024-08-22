@@ -11,7 +11,7 @@ let nflTimer = '<script src="https://static.elfsight.com/platform/platform.js" d
 // let videoTitle = "2023-2024 Recap";
 let LastSeasonYoutubeLink = "https://www.youtube.com/embed/U6ZD8yJy_zk?si=Ss1yIDoPUwL4L4tA";
 let videoTitle = "2022 Recap";
-// let videoDescription = "Recap of last season and a commentary on the draft";
+let videoDescription = "Recap of last season and a commentary on the draft";
 // ================== Fonte ==================
 let mp4Video = 'home.mp4';
 let embedded_local_video = '<video style="width:100%; height:380px;" controls><source src="' + mp4Video + '" type="video/mp4"></video>';
