@@ -8,8 +8,10 @@ export const enableBlog = true; // requires VITE_CONTENTFUL_ACCESS_TOKEN and VIT
 // =========== Fonte REPLACE THIS SECTION WITH STUFF FROM YOUTUBE =================
 let nflTimer = '<script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script> <div class="elfsight-app-322a5580-2944-49a1-853c-31942bfeb4c4" data-elfsight-app-lazy></div>';
 let LastSeasonYoutubeLink = "https://www.youtube.com/embed/wDTzLj0gVTo?si=o3qN6DGwI0AQgcg9";
-let videoTitle = "2023-2024 Recap";
-let videoDescription = "Recap of last season and a commentary on the draft";
+let LastSeasonYoutubeLink = "https://www.youtube.com/embed/U6ZD8yJy_zk?si=Ss1yIDoPUwL4L4tA";
+let videoTitle = "2022 Recap";
+// let videoTitle = "2023-2024 Recap";
+// let videoDescription = "Recap of last season and a commentary on the draft";
 // ================== Fonte ==================
 let mp4Video = 'home.mp4';
 let embedded_local_video = '<video style="width:100%; height:380px;" controls><source src="' + mp4Video + '" type="video/mp4"></video>';
