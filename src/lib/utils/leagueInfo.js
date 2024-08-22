@@ -93,9 +93,9 @@ export const managers = [
       "favoriteTeam": "nyg", // (optional) favorite NFL team, (follows convention: nyj, sea, mia, etc.) MUST BE LOWERCASE
       "mode": "Dynasty", // (optional) 'Win Now', 'Dynasty', or 'Rebuild' (anything else and you will need to add a new png to /static/ similar to the 'Rebuild.png' and 'Win Now.png' currently in there)
       "rival": {
-        name: "Surfside United", // Can be anything (usually your rival's name)
-        link: 6, // manager array number within this array, or null to link back to all managers page
-        image: "/managers/tyler.png", // either a specific manager photo or '/managers/everyone.png' or '/managers/question.png'
+        name: "Napsmoranfan", // Can be anything (usually your rival's name)
+        link: 5, // manager array number within this array, or null to link back to all managers page
+        image: "/managers/greg.png", // either a specific manager photo or '/managers/everyone.png' or '/managers/question.png'
       },
       "favoritePlayer": 9493, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
       "valuePosition": "WR", // (optional) Favorite position (QB, WR, RB, TE, etc.)
@@ -140,9 +140,9 @@ export const managers = [
       "favoriteTeam": "den", // (optional) favorite NFL team, (follows convention: nyj, sea, mia, etc.) MUST BE LOWERCASE
       "mode": "Dynasty", // (optional) 'Win Now', 'Dynasty', or 'Rebuild' (anything else and you will need to add a new png to /static/ similar to the 'Rebuild.png' and 'Win Now.png' currently in there)
       "rival": {
-        name: "Mike Moore", // Can be anything (usually your rival's name)
-        link: 6, // manager array number within this array, or null to link back to all managers page
-        image: "/managers/question.jpg", // either a specific manager photo or '/managers/everyone.png' or '/managers/question.png'
+        name: "Fonte", // Can be anything (usually your rival's name)
+        link: 3, // manager array number within this array, or null to link back to all managers page
+        image: "/managers/fonte.JPG", // either a specific manager photo or '/managers/everyone.png' or '/managers/question.png'
       },
       "favoritePlayer": 4970, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
       "valuePosition": "WR", // (optional) Favorite position (QB, WR, RB, TE, etc.)
