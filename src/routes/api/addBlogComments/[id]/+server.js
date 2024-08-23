@@ -7,8 +7,10 @@ const lang = "en-US";
 
 export async function POST({request, params}) {
     const client = contentful.createClient({
-        // This is the access token for this space. Normally you get the token in the Contentful web app
-        accessToken: import.meta.env.VITE_CONTENTFUL_ACCESS_TOKEN,
+        // This is the space ID. A space is like a project folder in Contentful terms
+        space: import.meta.env.VITE_CONTENTFUL_SPACE,
+        // This is the access token for this space. Normally you get both ID and the token in the Contentful web app
+        accessToken: import.meta.env.VITE_CONTENTFUL_ACCESS_TOKE
     });
     const space = await client.getSpace(import.meta.env.VITE_CONTENTFUL_SPACE)
         .catch(e => {
