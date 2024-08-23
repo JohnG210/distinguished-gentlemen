@@ -36,7 +36,7 @@ https://github.com/nmelhado/league-page/blob/master/TRAINING_WHEELS.md#ii-adding
 
 export const managers = [
     {
-      "roster": 5,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
+      "roster": 0,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
       "managerID": "869660544473432064",
       "name": "Yohn",
       "tookOver": 2022, // (optional) used if a manager took over a team, delete this line or change to null otherwise
@@ -105,7 +105,7 @@ export const managers = [
       "preferredContact": "Text", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
     },
     {
-      "roster": 2,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
+      "roster": 3,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
       "managerID": "872529230951600128",
       "name": "Timbo Slice",
       "tookOver": 2022, // (optional) used if a manager took over a team, delete this line or change to null otherwise
@@ -129,7 +129,7 @@ export const managers = [
     },
     // Greg
     {
-      "roster": 2,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
+      "roster": 4,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
       "managerID": "870036384591806464",
       "name": "Napsmoranfan",
       "tookOver": 2022, // (optional) used if a manager took over a team, delete this line or change to null otherwise
@@ -153,7 +153,7 @@ export const managers = [
     },
     // Tyler
     {
-      "roster": 2,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
+      "roster": 5,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
       "managerID": "869658614497959936",
       "name": "Tyler Mead",
       "tookOver": 2022, // (optional) used if a manager took over a team, delete this line or change to null otherwise
@@ -177,7 +177,7 @@ export const managers = [
     },
     // Allan
     {
-      "roster": 2,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
+      "roster": 6,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
       "managerID": "869660385937113088",
       "name": "Milk Man Kamikaze",
       "tookOver": 2022, // (optional) used if a manager took over a team, delete this line or change to null otherwise
@@ -196,6 +196,30 @@ export const managers = [
       "valuePosition": "RB", // (optional) Favorite position (QB, WR, RB, TE, etc.)
       "rookieOrVets": "Rookies", // (optional) 'Rookies' or 'Vets' (anything else and you will need to add a new png to /static/ similar to the 'Rookies.png' and 'Vets.png' currently in there)
       "philosophy": "My team’s philosophy is simple - Be everyone’s daddy. I want to make my opponents feel inferior, feel insecure, question their livelihoods….",
+      "tradingScale": 10, // 1 - 10
+      "preferredContact": "Text", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
+    },
+    // Ryan
+    {
+      "roster": 7,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
+      "managerID": "870081652427288576",
+      "name": "Backdoor bandits",
+      "tookOver": 2022, // (optional) used if a manager took over a team, delete this line or change to null otherwise
+      "location": "OG", // (optional)
+      "bio": "If youre reading this...my team is better than yours",
+      "photo": "/managers/ryan.png", // square ratio recommended (no larger than 500x500)
+      "fantasyStart": 2022, // (optional) when did the manager start playing fantasy football
+      "favoriteTeam": "phi", // (optional) favorite NFL team, (follows convention: nyj, sea, mia, etc.) MUST BE LOWERCASE
+      "mode": "Win Now", // (optional) 'Win Now', 'Dynasty', or 'Rebuild' (anything else and you will need to add a new png to /static/ similar to the 'Rebuild.png' and 'Win Now.png' currently in there)
+      "rival": {
+        name: "Whoever im playing", // Can be anything (usually your rival's name)
+        link: 0, // manager array number within this array, or null to link back to all managers page
+        image: "/managers/everyone.png", // either a specific manager photo or '/managers/everyone.png' or '/managers/question.png'
+      },
+      "favoritePlayer": 730, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
+      "valuePosition": "QB", // (optional) Favorite position (QB, WR, RB, TE, etc.)
+      "rookieOrVets": "Vets", // (optional) 'Rookies' or 'Vets' (anything else and you will need to add a new png to /static/ similar to the 'Rookies.png' and 'Vets.png' currently in there)
+      "philosophy": "UAWSTH",
       "tradingScale": 10, // 1 - 10
       "preferredContact": "Text", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
     },
