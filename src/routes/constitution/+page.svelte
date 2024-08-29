@@ -255,7 +255,7 @@
     <h2 class="sectionHeading" bind:this={four}>Section 4 Postseason</h2>
     
     <h3 bind:this={fourOne}>4.1 Playoffs</h3>
-    <p>At the end of the season 8 teams will make the playoffs. The first round of playoffs will commence in week 14. Each team that wins their division and the 5 wild card teams that finish with the best records, will receive a playoff berth. Each playoff matchup will only last one week and the winner will advance. Week 18 will not be used.</p>
+    <p>At the end of the season 8 teams will make the playoffs. The first round of playoffs will commence in week 15. Each team that wins their division and the 5 wild card teams that finish with the best records, will receive a playoff berth. Each playoff matchup will only last one week and the winner will advance. The championship round will be two weeks, week 17 & 18.</p>
     
     <h3 bind:this={fourTwo}>4.2 Seeding Tiebreakers</h3>
     <p>If two teams finish with the same record the tiebreakers will go as followed:</p>
