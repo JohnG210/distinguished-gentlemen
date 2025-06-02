@@ -111,7 +111,7 @@ export const managers = [
     },
     // Greg
     {
-      "roster": 4,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
+      "roster": 3,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
       "managerID": "870036384591806464",
       "name": "Napsmoranfan",
       "tookOver": 2022, // (optional) used if a manager took over a team, delete this line or change to null otherwise
@@ -135,7 +135,7 @@ export const managers = [
     },
     // Tyler
     {
-      "roster": 5,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
+      "roster": 4,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
       "managerID": "869658614497959936",
       "name": "Tyler Mead",
       "tookOver": 2022, // (optional) used if a manager took over a team, delete this line or change to null otherwise
@@ -159,7 +159,7 @@ export const managers = [
     },
     // Allan
     {
-      "roster": 6,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
+      "roster": 5,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
       "managerID": "869660385937113088",
       "name": "Milk Man Kamikaze",
       "tookOver": 2022, // (optional) used if a manager took over a team, delete this line or change to null otherwise
@@ -183,7 +183,7 @@ export const managers = [
     },
     // Ryan
     {
-      "roster": 7,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
+      "roster": 6,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
       "managerID": "870081652427288576",
       "name": "Backdoor bandits",
       "tookOver": 2022, // (optional) used if a manager took over a team, delete this line or change to null otherwise
@@ -207,7 +207,7 @@ export const managers = [
     },
     // Mulch
     {
-      "roster": 8,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
+      "roster": 7,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
       "managerID": "870361244966752256",
       "name": "Mulch Babeuf",
       "tookOver": 2022, // (optional) used if a manager took over a team, delete this line or change to null otherwise
@@ -231,7 +231,7 @@ export const managers = [
     },
     // Kyle
     {
-      "roster": 9,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
+      "roster": 8,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
       "managerID": "870081652427288576",
       "name": "Stone",
       "tookOver": 2025, // (optional) used if a manager took over a team, delete this line or change to null otherwise
@@ -254,32 +254,32 @@ export const managers = [
       "preferredContact": "Text", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
     },
     // Mike Melanson
-    // {
-    //   "roster": 10,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
-    //   "managerID": "870081652427288576",
-    //   "name": "Backdoor bandits",
-    //   "tookOver": 2022, // (optional) used if a manager took over a team, delete this line or change to null otherwise
-    //   "location": "OG", // (optional)
-    //   "bio": "If youre reading this...my team is better than yours",
-    //   "photo": "/managers/everyone.png", // square ratio recommended (no larger than 500x500)
-    //   "fantasyStart": 2025, // (optional) when did the manager start playing fantasy football
-    //   "favoriteTeam": "phi", // (optional) favorite NFL team, (follows convention: nyj, sea, mia, etc.) MUST BE LOWERCASE
-    //   "mode": "Win Now", // (optional) 'Win Now', 'Dynasty', or 'Rebuild' (anything else and you will need to add a new png to /static/ similar to the 'Rebuild.png' and 'Win Now.png' currently in there)
-    //   "rival": {
-    //     name: "Whoever im playing", // Can be anything (usually your rival's name)
-    //     link: 0, // manager array number within this array, or null to link back to all managers page
-    //     image: "/managers/everyone.png", // either a specific manager photo or '/managers/everyone.png' or '/managers/question.png'
-    //   },
-    //   "favoritePlayer": 730, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
-    //   "valuePosition": "QB", // (optional) Favorite position (QB, WR, RB, TE, etc.)
-    //   "rookieOrVets": "Vets", // (optional) 'Rookies' or 'Vets' (anything else and you will need to add a new png to /static/ similar to the 'Rookies.png' and 'Vets.png' currently in there)
-    //   "philosophy": "UAWSTH",
-    //   "tradingScale": 10, // 1 - 10
-    //   "preferredContact": "Text", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
-    // },
-    // Mike Moore
     {
       "roster": 9,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
+      "managerID": "870081652427288576", // actual "managerID": "1235047431314358272",
+      "name": "Melanson",
+      "tookOver": 2025, // (optional) used if a manager took over a team, delete this line or change to null otherwise
+      "location": "Boston, MA", // (optional)
+      "bio": "Faith, family, fantasy football",
+      "photo": "/managers/melanson.png", // square ratio recommended (no larger than 500x500)
+      "fantasyStart": 2025, // (optional) when did the manager start playing fantasy football
+      "favoriteTeam": "ne", // (optional) favorite NFL team, (follows convention: nyj, sea, mia, etc.) MUST BE LOWERCASE
+      "mode": "Win Now", // (optional) 'Win Now', 'Dynasty', or 'Rebuild' (anything else and you will need to add a new png to /static/ similar to the 'Rebuild.png' and 'Win Now.png' currently in there)
+      "rival": {
+        name: "Fonte", // Can be anything (usually your rival's name)
+        link: 0, // manager array number within this array, or null to link back to all managers page
+        image: "/managers/fonte.JPG", // either a specific manager photo or '/managers/everyone.png' or '/managers/question.png'
+      },
+      "favoritePlayer": 6770, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
+      "valuePosition": "QB", // (optional) Favorite position (QB, WR, RB, TE, etc.)
+      "rookieOrVets": "Vets", // (optional) 'Rookies' or 'Vets' (anything else and you will need to add a new png to /static/ similar to the 'Rookies.png' and 'Vets.png' currently in there)
+      "philosophy": "Mobile, agile, hostile",
+      "tradingScale": 10, // 1 - 10
+      "preferredContact": "Text", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
+    },
+    // Mike Moore
+    {
+      "roster": 10,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
       "managerID": "764980246582796288",
       "name": "Mikey Moore",
       "tookOver": 2022, // (optional) used if a manager took over a team, delete this line or change to null otherwise
@@ -303,7 +303,7 @@ export const managers = [
     },
     // Paul
     {
-      "roster": 10,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
+      "roster": 11,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
       "managerID": "870369260046811136",
       "name": "Paulie G",
       "tookOver": 2022, // (optional) used if a manager took over a team, delete this line or change to null otherwise
@@ -327,7 +327,7 @@ export const managers = [
     },
     // Thomas
     {
-      "roster": 7,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
+      "roster": 12,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
       "managerID": "872530477590982656",
       "name": "Sparky The Porn Star",
       "tookOver": 2022, // (optional) used if a manager took over a team, delete this line or change to null otherwise
@@ -351,7 +351,7 @@ export const managers = [
     },
     // Tim
     {
-      "roster": 3,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
+      "roster": 13,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
       "managerID": "872529230951600128",
       "name": "Timbo Slice",
       "tookOver": 2022, // (optional) used if a manager took over a team, delete this line or change to null otherwise
