@@ -1,5 +1,5 @@
 /*   STEP 1   */
-export const leagueID = "1123821159361003520"; // your league ID
+export const leagueID = "1235028005043044352"; // your league ID
 export const leagueName = "Distinguished Gentlemen"; // your league name
 export const dues = 50; // (optional) used in template constitution page
 export const dynasty = true; // true for dynasty leagues, false for redraft and keeper
@@ -31,7 +31,7 @@ export const homepageText = `` + nflTimer + embedded_youtube_element  + `<div st
 If you're having trouble, reference the Training Wheels' Manager Section
 https://github.com/nmelhado/league-page/blob/master/TRAINING_WHEELS.md#ii-adding-managers-and-changing-the-homepage-text
 
-Manager IDs: https://api.sleeper.app/v1/league/1123821159361003520/users
+Manager IDs: https://api.sleeper.app/v1/league/1235028005043044352/users
 */
 
 // To omit an optional field, set it's value to null
@@ -232,7 +232,7 @@ export const managers = [
     // Kyle
     {
       "roster": 8,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
-      "managerID": "870081652427288576", // Actual is 739602561295896576
+      "managerID": "739602561295896576", // Actual is 739602561295896576
       "name": "Stone",
       "tookOver": 2025, // (optional) used if a manager took over a team, delete this line or change to null otherwise
       "location": "Bangkok", // (optional)
@@ -256,7 +256,7 @@ export const managers = [
     // Mike Melanson
     {
       "roster": 9,  // ID of the roster that the manager manages (look at the order of the power rankings graph)
-      "managerID": "870081652427288576", // actual "managerID": "1235047431314358272",
+      "managerID": "1235047431314358272", // actual "managerID": "1235047431314358272",
       "name": "Melanson",
       "tookOver": 2025, // (optional) used if a manager took over a team, delete this line or change to null otherwise
       "location": "Boston, MA", // (optional)
