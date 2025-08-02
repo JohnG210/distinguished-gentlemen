@@ -143,7 +143,7 @@
         <h4 class="noUnderscore clickable" onclick={() => goToSection(sixTwo)}>7.2 Payout</h4>
         <h4 class="noUnderscore clickable" onclick={() => goToSection(sixThree)}>7.3 Raising Dues</h4>
     
-    <h3 class="noUnderscore clickable" on:click={() => goToSection(changes)}>Suggest Changes</h3>
+    <h3 class="noUnderscore clickable" onclick={() => goToSection(changes)}>Suggest Changes</h3>
     
     <hr />
     
@@ -175,12 +175,13 @@
         
         <div class="subBlock">
             <table class="positionMaximums">
-                <tr><td>QB</td><td class="right">2 active, 3 total</td></tr>
-                <tr><td>RB</td><td class="right">20</td></tr>
-                <tr><td>WR</td><td class="right">20</td></tr>
-                <tr><td>TE</td><td class="right">10</td></tr>
-                <tr><td>D/ST</td><td class="right">3</td></tr>
-                <tr><td>K</td><td class="right">3</td></tr>
+                <tbody>
+                    <tr><td>QB</td><td class="right">2 active, 3 total</td></tr>
+                    <tr><td>RB</td><td class="right">20</td></tr>
+                    <tr><td>WR</td><td class="right">20</td></tr>
+                    <tr><td>TE</td><td class="right">10</td></tr>
+                    <tr><td>D/ST</td><td class="right">3</td></tr>
+                    <tr><td>K</td><td class="right">3</td></tr>
                 </tbody>
             </table>
         </div>
