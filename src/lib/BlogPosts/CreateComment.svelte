@@ -8,6 +8,7 @@
 	const dispatch = createEventDispatcher();
 
     const submit = () => {
+        console.log('CreateComment submit triggered with:', {comment, author});
         dispatch('createComment', {comment, author});
     }
 
@@ -50,7 +51,7 @@
     </div>
 
     <div class="submitArea">
-        <Textfield class="shaped-outlined" variant="outlined"bind:value={author} label="Your Sleeper Username" />
+        <Textfield class="shaped-outlined" variant="outlined" bind:value={author} label="Your Sleeper Username" />
         <Button onclick={() => submit()} variant="unelevated">
             <Label>Submit Comment</Label>
         </Button>

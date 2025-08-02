@@ -14,6 +14,7 @@
 
 
     const addComment = async(e) => {
+        console.log('addComment triggered with:', e.detail);
         const {comment, author} = e.detail;
         if(comment.trim() == "") {
             // handle error
@@ -22,6 +23,7 @@
             return;
         }
         const validAuthor = validateID(author);
+        console.log('Validated author ID:', validAuthor);
         if(!validAuthor) {
             // handle error
             errorMessage = 'Unauthorized user';
@@ -29,8 +31,12 @@
             return;
         }
 
+        console.log('Making API request to:', `/api/addBlogComments/${validAuthor}`);
         const res = await fetch(`/api/addBlogComments/${validAuthor}`, {
             method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
             body: JSON.stringify({
                 comment: comment.trim(),
                 postID
@@ -38,10 +44,11 @@
         })
 
         const newComment = await res.json();
+        console.log('API response:', { status: res.status, data: newComment });
 
         if(!res.ok) {
             // handle error
-            errorMessage = newComment;
+            errorMessage = newComment.message || newComment;
             open = true;
             return;
         }
@@ -50,6 +57,7 @@
         comments = [...comments, newComment];
         total++;
         showWrite = false;
+        console.log('Comment added successfully');
     }
 
     const validateID = (author) => {
@@ -135,5 +143,5 @@
             <div class="date"><i>{parseDate(comment.sys.createdAt)}</i></div>
         </div>
     {/each}
-    <CreateComment bind:showWrite={showWrite} oncreateComment={addComment}/>
+    <CreateComment bind:showWrite={showWrite} on:createComment={addComment}/>
 </div>

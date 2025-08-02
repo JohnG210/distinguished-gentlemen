@@ -10,7 +10,7 @@ export async function POST({request, params}) {
         // This is the space ID. A space is like a project folder in Contentful terms
         space: import.meta.env.VITE_CONTENTFUL_SPACE,
         // This is the access token for this space. Normally you get both ID and the token in the Contentful web app
-        accessToken: import.meta.env.VITE_CONTENTFUL_ACCESS_TOKE
+        accessToken: import.meta.env.VITE_CONTENTFUL_ACCESS_TOKEN
     });
     const space = await client.getSpace(import.meta.env.VITE_CONTENTFUL_SPACE)
         .catch(e => {

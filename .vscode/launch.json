@@ -12,6 +12,7 @@
             "env": {
                 "VITE_CONTENTFUL_CLIENT_ACCESS_TOKEN": "6kOi0WJjEJNNcWA5do8BathHQ0Is8B3QXP-zwi6zFog",
                 "VITE_CONTENTFUL_ACCESS_TOKE":  "CFPAT-N07xOCL6u3Qkl4YrYVflIeioHJgYpabysmQs3Hf0M_w",
+                "VITE_CONTENTFUL_ACCESS_TOKEN":  "CFPAT-N07xOCL6u3Qkl4YrYVflIeioHJgYpabysmQs3Hf0M_w",
                 "VITE_CONTENTFUL_SPACE": "mffzyhf15qxy",
               }
         },
@@ -23,6 +24,7 @@
             "env": {
                 "VITE_CONTENTFUL_CLIENT_ACCESS_TOKEN": "6kOi0WJjEJNNcWA5do8BathHQ0Is8B3QXP-zwi6zFog",
                 "VITE_CONTENTFUL_ACCESS_TOKE":  "CFPAT-N07xOCL6u3Qkl4YrYVflIeioHJgYpabysmQs3Hf0M_w",
+                "VITE_CONTENTFUL_ACCESS_TOKEN":  "CFPAT-N07xOCL6u3Qkl4YrYVflIeioHJgYpabysmQs3Hf0M_w",
                 "VITE_CONTENTFUL_SPACE": "mffzyhf15qxy",
               }
         },
