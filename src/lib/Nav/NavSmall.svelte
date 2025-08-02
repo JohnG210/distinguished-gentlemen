@@ -18,7 +18,11 @@
 
 	const selectTab = (tab) => {
 		open = false;
-		goto(tab.dest);
+		if (tab.external) {
+			window.open(tab.dest, '_blank');
+		} else {
+			goto(tab.dest);
+		}
 	}
 </script>
 
@@ -86,13 +90,13 @@
 					{#each tab.children as subTab}
 						{#if subTab.label == 'Managers'}
 							{#if managers.length}
-								<Item href="javascript:void(0)" onSMUIAction={() => selectTab(subTab)} activated={active == subTab.dest}  ontouchstart={() => preloadData(subTab.dest)} onmouseover={() => preloadData(subTab.dest)}>
+								<Item href="javascript:void(0)" onSMUIAction={() => selectTab(subTab)} activated={active == subTab.dest}  ontouchstart={() => {if(!subTab.external) preloadData(subTab.dest)}} onmouseover={() => {if(!subTab.external) preloadData(subTab.dest)}}>
 									<Graphic class="material-icons{active == subTab.dest ? "" : " nav-item"}" aria-hidden="true">{subTab.icon}</Graphic>
 									<Text class="{active == subTab.dest ? "" : "nav-item"}">{subTab.label}</Text>
 								</Item>
 							{/if}
 						{:else}
-							<Item href="javascript:void(0)" onSMUIAction={() => selectTab(subTab)} activated={active == subTab.dest}  ontouchstart={() => {if(subTab.label != 'Go to Sleeper') preloadData(subTab.dest)}} onmouseover={() => {if(subTab.label != 'Go to Sleeper') preloadData(subTab.dest)}}>
+							<Item href="javascript:void(0)" onSMUIAction={() => selectTab(subTab)} activated={active == subTab.dest}  ontouchstart={() => {if(!subTab.external) preloadData(subTab.dest)}} onmouseover={() => {if(!subTab.external) preloadData(subTab.dest)}}>
 								<Graphic class="material-icons{active == subTab.dest ? "" : " nav-item"}" aria-hidden="true">{subTab.icon}</Graphic>
 								<Text class="{active == subTab.dest ? "" : "nav-item"}">{subTab.label}</Text>
 							</Item>

@@ -34,9 +34,13 @@
 		display = !display;
 	}
 
-	const subGoto = (dest) => {
+	const subGoto = (dest, external = false) => {
 		open(false);
-		goto(dest);
+		if (external) {
+			window.open(dest, '_blank');
+		} else {
+			goto(dest);
+		}
 	}
 
 	let tabChildren = $state([]);
@@ -136,7 +140,7 @@
 		<List>
 			{#each tabChildren as subTab, ix}
 				{#if subTab.label == 'Managers'}
-					<Item class="{managers.length ? '' : 'dontDisplay'}" onSMUIAction={() => subGoto(subTab.dest)} ontouchstart={() => preloadData(subTab.dest)} onmouseover={() => preloadData(subTab.dest)}>
+					<Item class="{managers.length ? '' : 'dontDisplay'}" onSMUIAction={() => subGoto(subTab.dest, subTab.external)} ontouchstart={() => {if(!subTab.external) preloadData(subTab.dest)}} onmouseover={() => {if(!subTab.external) preloadData(subTab.dest)}}>
 						<Graphic class="material-icons">{subTab.icon}</Graphic>
 						<Text class="subText">{subTab.label}</Text>
 					</Item>
@@ -144,7 +148,7 @@
 						<Separator />
 					{/if}
 				{:else}
-					<Item onSMUIAction={() => subGoto(subTab.dest)} ontouchstart={() => {if(subTab.label != 'Go to Sleeper') preloadData(subTab.dest)}} onmouseover={() => {if(subTab.label != 'Go to Sleeper') preloadData(subTab.dest)}}>
+					<Item onSMUIAction={() => subGoto(subTab.dest, subTab.external)} ontouchstart={() => {if(!subTab.external) preloadData(subTab.dest)}} onmouseover={() => {if(!subTab.external) preloadData(subTab.dest)}}>
 						<Graphic class="material-icons">{subTab.icon}</Graphic>
 						<Text class="subText">{subTab.label}</Text>
 					</Item>

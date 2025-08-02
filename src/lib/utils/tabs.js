@@ -76,16 +76,19 @@ export const tabs = [
                 icon: 'sports_football',
                 label: 'Go to Sleeper',
                 dest: `https://sleeper.app/leagues/${leagueID}`,
+                external: true,
             },
             {
                 icon: 'code',
                 label: 'Github',
                 dest: `https://github.com/JohnG210/distinguished-gentlemen`,
+                external: true,
             },
             {
                 icon: 'rss_feed',
                 label: 'Blog',
                 dest: `https://app.contentful.com/spaces/mffzyhf15qxy/views/entries`,
+                external: true,
             },
         ]
     },
