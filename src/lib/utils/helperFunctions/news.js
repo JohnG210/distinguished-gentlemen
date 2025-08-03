@@ -21,25 +21,34 @@ export const getNews = async (servFetch, bypass = false) => {
 		newsSources.push(getFeed(REDDIT_FANTASY, processReddit));
 	}
 
-	const [serverRes, reddit] = await waitForAll(...newsSources).catch((err) => { console.error(err); });
-	const serverData = await serverRes.json().catch((err) => { console.error(err); });
+	try {
+		const [serverRes, reddit] = await waitForAll(...newsSources);
+		const serverData = await serverRes.json();
 
-	const articles = [...reddit, ...serverData].sort((a, b) => (a.ts < b.ts) ? 1 : -1);
-	news.update(() => articles);
+		const articles = [...reddit, ...serverData].sort((a, b) => (a.ts < b.ts) ? 1 : -1);
+		news.update(() => articles);
 
-	return {articles, fresh: true};
+		return {articles, fresh: true};
+	} catch (e) {
+		console.error(e);
+		return {articles: [], fresh: true};
+	}
 }
 
 const getFeed = async (feed, callback) => {
-	const res = await fetch(feed, {compress: true}).catch((err) => { console.error(err); });
-    
-	const data = await res.json().catch((err) => { console.error(err); });
-	
-	if (res.ok && data && data.data) {
-		return callback(data.data);
-	} else {
-		console.error(data);
-        return [];
+	try {
+		const res = await fetch(feed, {compress: true});
+		const data = await res.json();
+		
+		if (res.ok && data && data.data) {
+			return callback(data.data);
+		} else {
+			console.error(data);
+			return [];
+		}
+	} catch (e) {
+		console.error(e);
+		return [];
 	}
 }
 
