@@ -1,9 +1,10 @@
 <script>
 	import LinearProgress from '@smui/linear-progress';
-    import { generateParagraph, waitForAll } from "$lib/utils/helper";
-    import { onMount } from "svelte";
-    import Comments from "./Comments.svelte";
+	   import { generateParagraph, waitForAll } from "$lib/utils/helper";
+	   import { onMount } from "svelte";
+	   import Comments from "./Comments.svelte";
 	import AuthorAndDate from './AuthorAndDate.svelte';
+	   import S4Rankings from '$lib/s4rankings.svelte';
 
     export let leagueTeamManagersData, postsData, postID;
 
@@ -208,7 +209,11 @@
 
         <div class="body">
             {#each body.content as paragraph}
-                {@html generateParagraph(paragraph)}
+                {#if paragraph.nodeType === 'paragraph' && paragraph.content.length === 1 && paragraph.content[0].nodeType === 'text' && paragraph.content[0].value === '[CHART:rankComparison]'}
+                    <S4Rankings />
+                {:else}
+                    {@html generateParagraph(paragraph)}
+                {/if}
             {/each}
         </div>
 
