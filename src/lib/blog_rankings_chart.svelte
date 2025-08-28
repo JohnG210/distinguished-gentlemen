@@ -2,25 +2,7 @@
     import { onMount } from 'svelte';
     import Chart from 'chart.js/auto'; // Using 'chart.js/auto' for simplicity, or 'chart.js' with explicit register
 
-    export let chartData = {
-        labels: ['Dicks', 'Kyle', 'Tyler', 'Greg', 'Paul', 'Ryan', 'Fonte', 'John', 'Allan', 'Mike', 'Melanson', 'Mulch'],
-        datasets: [
-            {
-                label: 'Fonte Ranks',
-                data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-                backgroundColor: 'rgba(54, 162, 235, 0.5)',
-                borderColor: 'rgba(54, 162, 235, 1)',
-                borderWidth: 1
-            },
-            {
-                label: 'Site Ranks',
-                data: [1, 9, 3, 2, 3, 7, 5, 4, 11, 8, 12, 6],
-                backgroundColor: 'rgba(255, 99, 132, 0.5)',
-                borderColor: 'rgba(255, 99, 132, 1)',
-                borderWidth: 1
-            }
-        ]
-    };
+    export let chartData;
 
     export let chartOptions = {
         indexAxis: 'y',
@@ -35,6 +17,11 @@
             title: { display: true, text: 'Rank Comparison: Fonte vs. Site' }
         }
     };
+
+    $: if (myChart && chartData) {
+        myChart.data = chartData;
+        myChart.update();
+    }
 
     let chartCanvas;
     let myChart;

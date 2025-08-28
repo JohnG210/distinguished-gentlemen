@@ -50,6 +50,40 @@
     });
 
     const duration = 300;
+
+    function getChartData(chartTag) {
+        const regexMatch = chartTag.match(/\[CHART:rankComparison:(.*)\]/);
+        if (regexMatch && regexMatch[1]) {
+            const jsonString = regexMatch[1];
+            console.log("Attempting to parse JSON string:", jsonString); // Added for debugging
+            try {
+                const parsedData = JSON.parse(jsonString);
+                return {
+                    labels: parsedData.labels,
+                    datasets: [
+                        {
+                            label: 'Fonte Ranks',
+                            data: parsedData.fonteRanks,
+                            backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Site Ranks',
+                            data: parsedData.siteRanks,
+                            backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                            borderColor: 'rgba(255, 99, 132, 1)',
+                            borderWidth: 1
+                        }
+                    ]
+                };
+            } catch (error) {
+                console.error("Error parsing chart data:", error, "Data string:", jsonString);
+                return null;
+            }
+        }
+        return null;
+    }
 </script>
 
 <style>
@@ -146,7 +180,7 @@
     :global(.body table) {
         margin: 1em 2em;
         min-width: 80%;
-	    border: 1px solid var(--ddd);
+     border: 1px solid var(--ddd);
         border-collapse: collapse;
     }
 
@@ -156,7 +190,7 @@
 
     :global(.body td) {
         padding: 0.5em 0;
-	    text-align:center;
+     text-align:center;
     }
 
     :global(.body th) {
@@ -209,8 +243,19 @@
 
         <div class="body">
             {#each body.content as paragraph}
-                {#if paragraph.nodeType === 'paragraph' && paragraph.content.length === 1 && paragraph.content[0].nodeType === 'text' && paragraph.content[0].value === '[CHART:rankComparison]'}
-                    <BlogRankingsChart />
+                {#if paragraph.nodeType === 'paragraph' && paragraph.content.length === 1 && paragraph.content[0].nodeType === 'text'}
+                    {@const chartTag = paragraph.content[0].value}
+                    {#if chartTag.startsWith('[CHART:rankComparison')}
+                        {@const dynamicChartData = getChartData(chartTag)}
+                        {#if dynamicChartData}
+                            <BlogRankingsChart chartData={dynamicChartData} />
+                        {:else}
+                            <!-- Fallback or error message if data is invalid -->
+                            <p style="color: red;">Error: Invalid chart data format for rank comparison chart.</p>
+                        {/if}
+                    {:else}
+                        {@html generateParagraph(paragraph)}
+                    {/if}
                 {:else}
                     {@html generateParagraph(paragraph)}
                 {/if}
