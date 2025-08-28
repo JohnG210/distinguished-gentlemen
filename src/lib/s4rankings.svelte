@@ -3,7 +3,7 @@
     import Chart from 'chart.js/auto'; // Using 'chart.js/auto' for simplicity, or 'chart.js' with explicit register
 
     export let chartData = {
-        labels: ['Dicks', 'Kyle', 'Tyler', 'Greg', 'Paul', 'Ryan', 'Fonte', 'John', 'Allan', 'Mike', 'Malanson', 'Mulch'],
+        labels: ['Dicks', 'Kyle', 'Tyler', 'Greg', 'Paul', 'Ryan', 'Fonte', 'John', 'Allan', 'Mike', 'Melanson', 'Mulch'],
         datasets: [
             {
                 label: 'Fonte Ranks',
