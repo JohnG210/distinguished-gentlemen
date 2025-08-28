@@ -4,7 +4,7 @@
 	   import { onMount } from "svelte";
 	   import Comments from "./Comments.svelte";
 	import AuthorAndDate from './AuthorAndDate.svelte';
-	   import S4Rankings from '$lib/s4rankings.svelte';
+	   import BlogRankingsChart from '$lib/blog_rankings_chart.svelte';
 
     export let leagueTeamManagersData, postsData, postID;
 
@@ -210,7 +210,7 @@
         <div class="body">
             {#each body.content as paragraph}
                 {#if paragraph.nodeType === 'paragraph' && paragraph.content.length === 1 && paragraph.content[0].nodeType === 'text' && paragraph.content[0].value === '[CHART:rankComparison]'}
-                    <S4Rankings />
+                    <BlogRankingsChart />
                 {:else}
                     {@html generateParagraph(paragraph)}
                 {/if}
