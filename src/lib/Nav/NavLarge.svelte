@@ -6,6 +6,7 @@
     import { page } from '$app/state';
 	import { goto, preloadData } from '$app/navigation';
 	import { enableBlog, managers } from '$lib/utils/leagueInfo';
+	import { tick } from 'svelte';
 
 	let active = $state(tabs.find(tab => tab.dest == page.url.pathname || (tab.nest && tab.children.find(subTab => subTab.dest == page.url.pathname))));
 
@@ -30,8 +31,17 @@
 
 	let innerWidth = $state();
 
-	const open = () => {
+	const open = async () => {
 		display = !display;
+		if (display) {
+			await tick(); // Ensure DOM is updated before measuring
+			top = el?.getBoundingClientRect() ? el?.getBoundingClientRect().top  : 0;
+			const bottom = el?.getBoundingClientRect() ? el?.getBoundingClientRect().bottom  : 0;
+			height = bottom - top + 1;
+			left = el?.getBoundingClientRect() ? el?.getBoundingClientRect().left  : 0;
+			const right = el?.getBoundingClientRect() ? el?.getBoundingClientRect().right  : 0;
+			width = right - left;
+		}
 	}
 
 	const subGoto = (dest, external = false) => {
