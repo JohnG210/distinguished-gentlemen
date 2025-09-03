@@ -1,7 +1,9 @@
 <script>
     import { generateParagraph } from "$lib/utils/helper";
     import { fly } from "svelte/transition";
-	import AuthorAndDate from "./AuthorAndDate.svelte";
+ import AuthorAndDate from "./AuthorAndDate.svelte";
+    import BlogRankingsChart from '$lib/blog_rankings_chart.svelte';
+    import CountdownClock from '$lib/CountdownClock.svelte';
 
     export let leagueTeamManagers, post, createdAt, id = null, direction = 1;
 
@@ -28,6 +30,57 @@
     let e;
 
     $: isOverflown = e ? e.scrollHeight > e.clientHeight : false;
+
+    function getChartData(chartTag) {
+        const regexMatch = chartTag.match(/\[CHART:rankComparison:(.*)\]/);
+        if (regexMatch && regexMatch[1]) {
+            const jsonString = regexMatch[1];
+            try {
+                const parsedData = JSON.parse(jsonString);
+                return {
+                    labels: parsedData.labels,
+                    datasets: [
+                        {
+                            label: 'Fonte Ranks',
+                            data: parsedData.fonteRanks,
+                            backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Site Ranks',
+                            data: parsedData.siteRanks,
+                            backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                            borderColor: 'rgba(255, 99, 132, 1)',
+                            borderWidth: 1
+                        }
+                    ]
+                };
+            } catch (error) {
+                console.error("Error parsing chart data:", error, "Data string:", jsonString);
+                return null;
+            }
+        }
+        return null;
+    }
+
+    function getCountdownData(countdownTag) {
+        const regexMatch = countdownTag.match(/\[CHART:countdown:({.+?})\]/);
+        if (regexMatch && regexMatch[1]) {
+            try {
+                const parsedData = JSON.parse(regexMatch[1]);
+                return {
+                    targetDateTime: parsedData.targetDateTime,
+                    title: parsedData.title,
+                    hideOnComplete: parsedData.hideOnComplete
+                };
+            } catch (error) {
+                console.error("Error parsing countdown data:", error, "Data string:", regexMatch[1]);
+                return null;
+            }
+        }
+        return null;
+    }
 </script>
 
 <style>
@@ -203,7 +256,34 @@
 
             <div class="body" bind:this={e} style="padding-bottom: {isOverflown ? '3em' : '0'}">
                 {#each body.content as paragraph}
-                    {@html generateParagraph(paragraph)}
+                    {#if paragraph.nodeType === 'paragraph' && paragraph.content.length === 1 && paragraph.content[0].nodeType === 'text'}
+                        {@const chartTag = paragraph.content[0].value}
+                        {#if chartTag.startsWith('[CHART:rankComparison')}
+                            {@const dynamicChartData = getChartData(chartTag)}
+                            {#if dynamicChartData}
+                                <BlogRankingsChart chartData={dynamicChartData} />
+                            {:else}
+                                <!-- Fallback or error message if data is invalid -->
+                                <p style="color: red;">Error: Invalid chart data format for rank comparison chart.</p>
+                            {/if}
+                        {:else if chartTag.startsWith('[CHART:countdown')}
+                            {@const dynamicCountdownData = getCountdownData(chartTag)}
+                            {#if dynamicCountdownData}
+                                <CountdownClock
+                                    targetDateTime={dynamicCountdownData.targetDateTime}
+                                    title={dynamicCountdownData.title}
+                                    hideOnComplete={dynamicCountdownData.hideOnComplete}
+                                />
+                            {:else}
+                                <!-- Fallback or error message if data is invalid -->
+                                <p style="color: red;">Error: Invalid countdown data format.</p>
+                            {/if}
+                        {:else}
+                            {@html generateParagraph(paragraph)}
+                        {/if}
+                    {:else}
+                        {@html generateParagraph(paragraph)}
+                    {/if}
                 {/each}
                 {#if isOverflown}
                     <div class="fade">

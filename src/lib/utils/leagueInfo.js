@@ -6,7 +6,7 @@ export const dynasty = true; // true for dynasty leagues, false for redraft and 
 export const enableBlog = true; // requires VITE_CONTENTFUL_ACCESS_TOKEN and VITE_CONTENTFUL_SPACE environment variables
 
 // =========== Fonte REPLACE THIS SECTION WITH STUFF FROM YOUTUBE =================
-let nflTimer = '<script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script> <div class="elfsight-app-322a5580-2944-49a1-853c-31942bfeb4c4" data-elfsight-app-lazy></div>';
+let nflTimer = '';
 // let LastSeasonYoutubeLink = "https://www.youtube.com/embed/wDTzLj0gVTo?si=o3qN6DGwI0AQgcg9";
 // let videoTitle = "2023-2024 Recap";
 let LastSeasonYoutubeLink = "https://www.youtube.com/embed/AITgKTEgYBI?si=F-m8SkPZ-8cUA8tV";

@@ -5,6 +5,7 @@
 	   import Comments from "./Comments.svelte";
 	import AuthorAndDate from './AuthorAndDate.svelte';
 	   import BlogRankingsChart from '$lib/blog_rankings_chart.svelte';
+	  import CountdownClock from '$lib/CountdownClock.svelte';
 
     export let leagueTeamManagersData, postsData, postID;
 
@@ -79,6 +80,24 @@
                 };
             } catch (error) {
                 console.error("Error parsing chart data:", error, "Data string:", jsonString);
+                return null;
+            }
+        }
+        return null;
+    }
+
+    function getCountdownData(countdownTag) {
+        const regexMatch = countdownTag.match(/\[CHART:countdown:({.+?})\]/);
+        if (regexMatch && regexMatch[1]) {
+            try {
+                const parsedData = JSON.parse(regexMatch[1]);
+                return {
+                    targetDateTime: parsedData.targetDateTime,
+                    title: parsedData.title,
+                    hideOnComplete: parsedData.hideOnComplete
+                };
+            } catch (error) {
+                console.error("Error parsing countdown data:", error, "Data string:", regexMatch[1]);
                 return null;
             }
         }
@@ -252,6 +271,18 @@
                         {:else}
                             <!-- Fallback or error message if data is invalid -->
                             <p style="color: red;">Error: Invalid chart data format for rank comparison chart.</p>
+                        {/if}
+                    {:else if chartTag.startsWith('[CHART:countdown')}
+                        {@const dynamicCountdownData = getCountdownData(chartTag)}
+                        {#if dynamicCountdownData}
+                            <CountdownClock
+                                targetDateTime={dynamicCountdownData.targetDateTime}
+                                title={dynamicCountdownData.title}
+                                hideOnComplete={dynamicCountdownData.hideOnComplete}
+                            />
+                        {:else}
+                            <!-- Fallback or error message if data is invalid -->
+                            <p style="color: red;">Error: Invalid countdown data format.</p>
                         {/if}
                     {:else}
                         {@html generateParagraph(paragraph)}

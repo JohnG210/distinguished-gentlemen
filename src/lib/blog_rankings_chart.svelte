@@ -1,4 +1,5 @@
 <script>
+    //Example blog post usage: [CHART:rankComparison:{"labels":["Dicks","Kyle","Tyler","Greg","Paul","Ryan","Fonte","John","Allan","Mike","Melanson","Mulch"],"fonteRanks":[1,2,3,4,5,6,7,8,9,10,11,12],"siteRanks":[1,9,3,2,3,7,5,4,11,8,12,6]}]
     import { onMount } from 'svelte';
     import Chart from 'chart.js/auto'; // Using 'chart.js/auto' for simplicity, or 'chart.js' with explicit register
 
