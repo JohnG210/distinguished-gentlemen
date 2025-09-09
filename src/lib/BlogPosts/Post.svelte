@@ -4,6 +4,7 @@
  import AuthorAndDate from "./AuthorAndDate.svelte";
     import BlogRankingsChart from '$lib/blog_rankings_chart.svelte';
     import CountdownClock from '$lib/CountdownClock.svelte';
+    import SurveyMonkeyEmbed from '$lib/SurveyMonkeyEmbed.svelte';
 
     export let leagueTeamManagers, post, createdAt, id = null, direction = 1;
 
@@ -81,6 +82,25 @@
         }
         return null;
     }
+
+   function getSurveyData(surveyTag) {
+       const regexMatch = surveyTag.match(/\[SURVEY:embed:({.+?})\]/);
+       if (regexMatch && regexMatch[1]) {
+           try {
+               const parsedData = JSON.parse(regexMatch[1]);
+               if (parsedData.scriptUrl) {
+                   return { scriptUrl: parsedData.scriptUrl };
+               } else {
+                   console.error("Error parsing survey data: 'scriptUrl' missing.", parsedData);
+                   return null;
+               }
+           } catch (error) {
+               console.error("Error parsing survey data:", error, "Data string:", regexMatch[1]);
+               return null;
+           }
+       }
+       return null;
+   }
 </script>
 
 <style>
@@ -277,6 +297,14 @@
                             {:else}
                                 <!-- Fallback or error message if data is invalid -->
                                 <p style="color: red;">Error: Invalid countdown data format.</p>
+                            {/if}
+                        {:else if chartTag.startsWith('[SURVEY:embed')}
+                            {@const dynamicSurveyData = getSurveyData(chartTag)}
+                            {#if dynamicSurveyData && dynamicSurveyData.scriptUrl}
+                                <SurveyMonkeyEmbed surveyScriptUrl={dynamicSurveyData.scriptUrl} />
+                            {:else}
+                                <!-- Fallback or error message if data is invalid -->
+                                <p style="color: red;">Error: Invalid survey data format.</p>
                             {/if}
                         {:else}
                             {@html generateParagraph(paragraph)}
