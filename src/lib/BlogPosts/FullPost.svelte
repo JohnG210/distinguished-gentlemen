@@ -57,28 +57,9 @@
         const regexMatch = chartTag.match(/\[CHART:rankComparison:(.*)\]/);
         if (regexMatch && regexMatch[1]) {
             const jsonString = regexMatch[1];
-            console.log("Attempting to parse JSON string:", jsonString); // Added for debugging
             try {
-                const parsedData = JSON.parse(jsonString);
-                return {
-                    labels: parsedData.labels,
-                    datasets: [
-                        {
-                            label: 'Fonte Ranks',
-                            data: parsedData.fonteRanks,
-                            backgroundColor: 'rgba(54, 162, 235, 0.5)',
-                            borderColor: 'rgba(54, 162, 235, 1)',
-                            borderWidth: 1
-                        },
-                        {
-                            label: 'Site Ranks',
-                            data: parsedData.siteRanks,
-                            backgroundColor: 'rgba(255, 99, 132, 0.5)',
-                            borderColor: 'rgba(255, 99, 132, 1)',
-                            borderWidth: 1
-                        }
-                    ]
-                };
+                const personData = JSON.parse(jsonString);
+                return personData;
             } catch (error) {
                 console.error("Error parsing chart data:", error, "Data string:", jsonString);
                 return null;
@@ -288,7 +269,7 @@
                     {#if chartTag.startsWith('[CHART:rankComparison')}
                         {@const dynamicChartData = getChartData(chartTag)}
                         {#if dynamicChartData}
-                            <BlogRankingsChart chartData={dynamicChartData} />
+                            <BlogRankingsChart personData={dynamicChartData} />
                         {:else}
                             <!-- Fallback or error message if data is invalid -->
                             <p style="color: red;">Error: Invalid chart data format for rank comparison chart.</p>
